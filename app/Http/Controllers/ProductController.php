@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'Index method';
+        //return 'Index Method!';
+        return view('products');
     }
 
     /**
@@ -35,7 +36,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product= new Product();
+        $product->name= $request->has('name')? $request->get('name'):'';
+        $product->price= $request->has('price')? $request->get('price'):'';
+        $product->amount= $request->has('amount')? $request->get('amount'):'';
+        $product->is_active= 1;
+
+        $product->save();
+        return back()->with('success', 'Product Successfully Saved!');
     }
 
     /**

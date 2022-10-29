@@ -12,9 +12,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        dd("hello");
+        $email= $request->has('email')?$request->get('email'):'';
+        $pass= $request->has('pass')?$request->get('pass'):'';
+
+        $userInfo= User::where('email','=', $email)->where('password', '=', $pass)->first();
+
+        if(isset($userInfo)&& $userInfo!=null){
+            return redirect('/admin_products');
+        } else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -35,16 +44,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-//        return $request->all();
         User::insert([
             'name'=>$request->has('uname')? $request->get('uname'):'',
             'email'=>$request->has('email')? $request->get('email'):'',
             'mobile'=>$request->has('mobile')? $request->get('mobile'):'',
             'password'=>$request->has('pass')? $request->get('pass'):'',
-
         ]);
 
-        return redirect('/products');
+        return redirect('/admin_products');
     }
 
     /**
@@ -90,5 +97,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addProduct(){
+        return view('add_product');
     }
 }
