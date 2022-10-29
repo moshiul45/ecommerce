@@ -33,7 +33,7 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
-Route::get('/admin_products', [\App\Http\Controllers\UserController::class,'addProduct']);
+Route::get('/admin_products', [\App\Http\Controllers\ProductController::class,'addProduct']);
 
 
 Route::resource('/products', \App\Http\Controllers\ProductController::class);

@@ -104,4 +104,20 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function addProduct(){
+        $products = Product::all();
+        $returnProducts = array();
+        foreach ($products as $product){
+            $images=explode('|',$product->image);
+            $returnProducts[]= [
+              'name'=>$product->name,
+                'price'=>$product->price,
+                'amount'=>$product->amount,
+                'image'=>$images[0]
+            ];
+        }
+        return view('add_product', compact('returnProducts'));
+//        return view('add_product');
+    }
 }
