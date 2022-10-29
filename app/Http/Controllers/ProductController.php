@@ -107,6 +107,7 @@ class ProductController extends Controller
 
     public function addProduct(){
         $products = Product::all();
+
         $returnProducts = array();
         foreach ($products as $product){
             $images=explode('|',$product->image);
