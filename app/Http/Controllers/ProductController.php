@@ -41,9 +41,23 @@ class ProductController extends Controller
         $product->price= $request->has('price')? $request->get('price'):'';
         $product->amount= $request->has('amount')? $request->get('amount'):'';
         $product->is_active= 1;
-
-        $product->save();
-        return back()->with('success', 'Product Successfully Saved!');
+        if($request->hasFile('images')){
+            $files=$request->file('images');
+            $imageLocation = array();
+            $i=0;
+            foreach ($files as $file){
+                $extension = $file->getClientOriginalExtension();
+                $fileName = 'product_'.time().++$i.'.'.$extension;
+                $location= '/images/uploads/products/';
+                $file->move(public_path().$location, $fileName);
+                $imageLocation[]=$location.$fileName;
+            }
+            $product->image= implode('|', $imageLocation);
+            $product->save();
+            return back()->with('success', 'Product Successfully Saved!');
+        }else{
+            return back->with("error", "Product is not saved successfully");
+        }
     }
 
     /**
