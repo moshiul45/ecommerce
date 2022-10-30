@@ -14,7 +14,9 @@ class AddColumnsToProductTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-
+            $table->string('details');
+            $table->integer('category_id');
+            $table->string('size');
         });
     }
 
