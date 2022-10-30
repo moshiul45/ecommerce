@@ -14,8 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product=Product::paginate(3);
-        return view('products', compact('product'));
+        //return 'Index Method!';
+        $products= Product::paginate(3);
+        return view('products', compact('products'));
     }
 
     /**
@@ -41,22 +42,25 @@ class ProductController extends Controller
         $product->price= $request->has('price')? $request->get('price'):'';
         $product->amount= $request->has('amount')? $request->get('amount'):'';
         $product->is_active= 1;
+
         if($request->hasFile('images')){
-            $files=$request->file('images');
-            $imageLocation = array();
+            $files = $request->file('images');
+
+            $imageLocation= array();
             $i=0;
             foreach ($files as $file){
                 $extension = $file->getClientOriginalExtension();
-                $fileName = 'product_'.time().++$i.'.'.$extension;
-                $location= '/images/uploads/products/';
-                $file->move(public_path().$location, $fileName);
-                $imageLocation[]=$location.$fileName;
+                $fileName= 'product_'. time() . ++$i . '.' . $extension;
+                $location= '/images/uploads/';
+                $file->move(public_path() . $location, $fileName);
+                $imageLocation[]= $location. $fileName;
             }
+
             $product->image= implode('|', $imageLocation);
             $product->save();
             return back()->with('success', 'Product Successfully Saved!');
-        }else{
-            return back->with("error", "Product is not saved successfully");
+        } else{
+            return back()->with('error', 'Product was not saved Successfully!');
         }
     }
 
@@ -106,19 +110,21 @@ class ProductController extends Controller
     }
 
     public function addProduct(){
-        $products = Product::all();
+        $products= Product::all();
+        $returnProducts= array();
 
-        $returnProducts = array();
         foreach ($products as $product){
-            $images=explode('|',$product->image);
-            $returnProducts[]= [
-              'name'=>$product->name,
-                'price'=>$product->price,
-                'amount'=>$product->amount,
-                'image'=>$images[0]
+            $images= explode('|', $product->image);
+
+            $returnProducts[] = [
+                'name'=> $product->name,
+                'price'=> $product->price,
+                'amount'=> $product->amount,
+                'image'=> $images[0]
             ];
+
         }
+
         return view('add_product', compact('returnProducts'));
-//        return view('add_product');
     }
 }
