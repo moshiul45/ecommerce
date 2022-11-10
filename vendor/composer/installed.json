@@ -2908,6 +2908,78 @@
             "install-path": "../nunomaduro/collision"
         },
         {
+            "name": "olimortimer/laravelshoppingcart",
+            "version": "6.0.1",
+            "version_normalized": "6.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olimortimer/LaravelShoppingcart.git",
+                "reference": "80183dcfa7fe54ef100d0db051e3594ac9f9fffc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olimortimer/LaravelShoppingcart/zipball/80183dcfa7fe54ef100d0db051e3594ac9f9fffc",
+                "reference": "80183dcfa7fe54ef100d0db051e3594ac9f9fffc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "^5|^6|^7|^8|^9",
+                "illuminate/session": "^5|^6|^7|^8|^9",
+                "illuminate/support": "^5|^6|^7|^8|^9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0 || ^1.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.0 || ~8.0 || ~9.0"
+            },
+            "time": "2022-10-11T15:14:40+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                },
+                {
+                    "name": "Michael V.",
+                    "email": "michael@michaelbelgium.me"
+                },
+                {
+                    "name": "Oli Mortimer",
+                    "email": "oli@olimortimer.com"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "support": {
+                "issues": "https://github.com/olimortimer/LaravelShoppingcart/issues",
+                "source": "https://github.com/olimortimer/LaravelShoppingcart/tree/6.0.1"
+            },
+            "install-path": "../olimortimer/laravelshoppingcart"
+        },
+        {
             "name": "opis/closure",
             "version": "3.6.3",
             "version_normalized": "3.6.3.0",

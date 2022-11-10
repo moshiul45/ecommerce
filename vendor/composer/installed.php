@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'bd944c745e99e83198776f2ec055b24b7d5a1768',
+        'reference' => '373432d3cdd163af3577fbaa037a116fa6c2044c',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -400,7 +400,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'bd944c745e99e83198776f2ec055b24b7d5a1768',
+            'reference' => '373432d3cdd163af3577fbaa037a116fa6c2044c',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -552,6 +552,15 @@
             'aliases' => array(),
             'reference' => '8b610eef8582ccdc05d8f2ab23305e2d37049461',
             'dev_requirement' => true,
+        ),
+        'olimortimer/laravelshoppingcart' => array(
+            'pretty_version' => '6.0.1',
+            'version' => '6.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../olimortimer/laravelshoppingcart',
+            'aliases' => array(),
+            'reference' => '80183dcfa7fe54ef100d0db051e3594ac9f9fffc',
+            'dev_requirement' => false,
         ),
         'opis/closure' => array(
             'pretty_version' => '3.6.3',
@@ -730,8 +739,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
