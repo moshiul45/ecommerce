@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\ProductController::class,'home']);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//Route::get('/products', function () {
+//    return view('products');
+//});
 
 Route::get('/product_details', function () {
     return view('product_details');
@@ -23,14 +29,11 @@ Route::get('/account', function () {
     return view('account');
 });
 
-Route::get('/cart', [\App\Http\Controllers\ProductController::class,'viewCart']);
-
-Route::get('/admin_products', [\App\Http\Controllers\ProductController::class,'addProduct']);
-
 
 Route::resource('/products', \App\Http\Controllers\ProductController::class);
+Route::post('add-to-cart', '\App\Http\Controllers\ProductController@addToCart');
+Route::get('/cart', '\App\Http\Controllers\ProductController@viewCart');
 
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 
-Route::post('add-to-cart',[\App\Http\Controllers\ProductController::class,'addToCart']);
-Route::get('/remove-item/{rowId}', [\App\Http\Controllers\ProductController::class,'removeItem']);
+Route::get('/admin_products', '\App\Http\Controllers\ProductController@addProduct');
