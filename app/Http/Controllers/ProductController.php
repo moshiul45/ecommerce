@@ -120,10 +120,10 @@ class ProductController extends Controller
             $images= explode('|', $product->image);
 
             $returnProducts[] = [
-                'name'=> $product->name,
-                'price'=> $product->price,
-                'amount'=> $product->amount,
-                'image'=> $images[0]
+               'name'=> $product->name,
+               'price'=> $product->price,
+               'amount'=> $product->amount,
+               'image'=> $images[0]
             ];
 
         }

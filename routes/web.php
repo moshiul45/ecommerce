@@ -21,11 +21,11 @@ Route::get('/product_details', function () {
 
 Route::get('/account', function () {
     return view('account');
-});
+})->name('account');
 
 Route::get('/cart', [\App\Http\Controllers\ProductController::class,'viewCart']);
 
-Route::get('/admin_products', [\App\Http\Controllers\ProductController::class,'addProduct']);
+Route::get('/admin_products', [\App\Http\Controllers\ProductController::class,'addProduct'])->middleware('auth');
 
 
 Route::resource('/products', \App\Http\Controllers\ProductController::class);
