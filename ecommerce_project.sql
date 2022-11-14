@@ -169,7 +169,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `mobile`, `email_verified_at`, `password`, `is_active`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'MOSHIUL', 'nutritionists@test.com', '01631925038', NULL, '123456', 1, 0, NULL, '2022-10-29 06:04:12', '2022-10-29 06:04:12');
+(1, 'MOSHIUL', 'nutritionists@test.com', '015692469866', NULL, '123456', 1, 0, NULL, '2022-10-29 06:04:12', '2022-10-29 06:04:12');
 
 --
 -- Indexes for dumped tables
